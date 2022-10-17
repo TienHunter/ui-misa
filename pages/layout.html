@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+         rel="stylesheet"
+         href="../assets/fonts/fontawesome-free-6.2.0-web/css/all.min.css"
+      />
+      <link rel="stylesheet" href="../css/layout/layout.css" />
+      <title>Document</title>
+   </head>
+   <body>
+      <div class="wrapper">
+         <!-- header -->
+         <div class="header m-d-flex">
+            <div class="header__left m-d-flex">
+               <div class="header-left__button">
+                  <div class="m-icon m-icon--option"></div>
+               </div>
+               <div class="header-left__logo"></div>
+            </div>
+            <div class="header__right m-d-flex">
+               <div class="toggle-sidebar">
+                  <div class="m-icon m-icon--menu"></div>
+               </div>
+               <div class="header-right__title m-d-flex">
+                  <span
+                     class="hide-text-ellipsis"
+                     title="CÔNG TY TNHH SẢN XUẤT - THƯƠNG MẠI - DỊCH VỤ QUY
+                  PHÚC"
+                     >CÔNG TY TNHH SẢN XUẤT - THƯƠNG MẠI - DỊCH VỤ QUY
+                     PHÚC</span
+                  >
+                  <div class="m-icon m-icon--chervon-down"></div>
+               </div>
+               <!-- <div class="header-rigth__search">
+                  <div class="textfield__container">
+                     <input type="text" class="textfield__input" />
+                     <button class="textfield__icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                     </button>
+                  </div>
+               </div> -->
+               <div class="header-right__icons m-d-flex">
+                  <div class="header-right__icon m-d-flex">
+                     <div class="m-icon m-icon--message"></div>
+                  </div>
+                  <div class="header-right__icon m-d-flex">
+                     <div class="m-icon m-icon--questioon"></div>
+                  </div>
+                  <div class="header-right__icon m-d-flex">
+                     <div class="m-icon m-icon--bell"></div>
+                  </div>
+               </div>
+               <div class="header-right__user m-d-flex">
+                  <div class="header-user__avatar">
+                     <div class="m-icon m-icon--no-avatar"></div>
+                  </div>
+                  <p class="header-user__name">Vũ Đình Tiến</p>
+                  <div class="m-icon m-icon--chervon-down"></div>
+               </div>
+            </div>
+         </div>
+         <!-- container -->
+         <div class="container">
+            <div class="sidebar">
+               <ul class="sidebar-content">
+                  <li class="sidebar-item m-d-flex selected">
+                     <div
+                        class="m-icon m-icon--general m-icon--general--selected"
+                     ></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Tổng quan</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--cash"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Tiền mặt</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--deposits"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Tiền gửi</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--purchase"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Mua hàng</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--sell"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Bán hàng</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--billManagement"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Quản lý hóa đơn</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--warehouse"></div>
+                     <span class="sidebar-text hide-text-ellipsis">Kho</span>
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--tools"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Công cụ dụng cụ</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--fixedAssets"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Tài sản cố định</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--tax"></div>
+                     <span class="sidebar-text hide-text-ellipsis">Thuế</span>
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--price"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Giá thành</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--synthetic"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Tổng hợp</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--budget"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Ngân sách</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--report"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Báo cáo</span
+                     >
+                  </li>
+                  <li class="sidebar-item m-d-flex">
+                     <div class="m-icon m-icon--financialAnalysis"></div>
+                     <span class="sidebar-text hide-text-ellipsis"
+                        >Phân tích tài chính</span
+                     >
+                  </li>
+               </ul>
+            </div>
+            <div class="main">
+               <div class="main__header m-d-flex">
+                  <span class="main-header__title">Nhân viên</span>
+                  <div class="main-header__actions m-d-flex">
+                     <button class="btn btn-primary">Thêm mới nhân viên</button>
+                  </div>
+               </div>
+               <div class="main__content">
+                  <div class="main-content__tools m-d-flex">
+                     <div class="textfield__container m-margin-0 m-mr-12">
+                        <input type="text" class="textfield__input" />
+                        <button class="textfield__icon">
+                           <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                     </div>
+                     <div class="main-content-tools m-d-flex">
+                        <div class="m-icon-wrapper">
+                           <div class="m-icon m-icon--refresh"></div>
+                        </div>
+                        <div class="m-icon-wrapper">
+                           <div class="m-icon m-icon--excel"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="main-content__table">
+                     <div class="m-table-wrapper">
+                        <div class="m-table__content">
+                           <table>
+                              <thead>
+                                 <tr>
+                                    <th
+                                       style="min-width: 40px"
+                                       class="th-anchor"
+                                    >
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </th>
+                                    <th style="min-width: 160px">
+                                       Mã nhân viên
+                                    </th>
+                                    <th style="min-width: 160px">
+                                       Tên nhân viên
+                                    </th>
+                                    <th style="min-width: 160px">Giới tính</th>
+                                    <th style="min-width: 160px">Ngày sinh</th>
+                                    <th style="min-width: 160px">Số CMND</th>
+                                    <th style="min-width: 160px">Chức danh</th>
+                                    <th style="min-width: 160px">Tên đơn vị</th>
+                                    <th style="min-width: 160px">
+                                       Số tài khoản
+                                    </th>
+                                    <th style="min-width: 160px">
+                                       Tên ngân hàng
+                                    </th>
+                                    <th style="min-width: 160px">
+                                       Chi nhánh ngân hàng
+                                    </th>
+                                    <th
+                                       style="min-width: 160px"
+                                       class="th-anchor th-anchor--end"
+                                    >
+                                       Chức năng
+                                    </th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td class="td-anchor td-anchor--start">
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </td>
+                                    <td>MF1444</td>
+                                    <td>Vũ Đình Tiến</td>
+                                    <td>Nam</td>
+                                    <td>03/10/2001</td>
+                                    <td>123456789</td>
+                                    <td>Fresher</td>
+                                    <td>Customize</td>
+                                    <td>123456789</td>
+                                    <td>ViettinBank</td>
+                                    <td>Hai Bà Trưng</td>
+                                    <td class="td-anchor td-anchor--end">
+                                       <div class="m-d-flex-auto">
+                                          <a href="" class>Sửa</a>
+
+                                          <div
+                                             class="m-icon m-icon--dropdown"
+                                          ></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="td-anchor td-anchor--start">
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </td>
+                                    <td>MF1444</td>
+                                    <td>Vũ Đình Tiến</td>
+                                    <td>Nam</td>
+                                    <td>03/10/2001</td>
+                                    <td>123456789</td>
+                                    <td>Fresher</td>
+                                    <td>Customize</td>
+                                    <td>123456789</td>
+                                    <td>ViettinBank</td>
+                                    <td>Hai Bà Trưng</td>
+                                    <td class="td-anchor td-anchor--end">
+                                       <div class="m-d-flex-auto">
+                                          <a href="" class>Sửa</a>
+
+                                          <div
+                                             class="m-icon m-icon--dropdown"
+                                          ></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="td-anchor td-anchor--start">
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </td>
+                                    <td>MF1444</td>
+                                    <td>Vũ Đình Tiến</td>
+                                    <td>Nam</td>
+                                    <td>03/10/2001</td>
+                                    <td>123456789</td>
+                                    <td>Fresher</td>
+                                    <td>Customize</td>
+                                    <td>123456789</td>
+                                    <td>ViettinBank</td>
+                                    <td>Hai Bà Trưng</td>
+                                    <td class="td-anchor td-anchor--end">
+                                       <div class="m-d-flex-auto">
+                                          <a href="" class>Sửa</a>
+
+                                          <div
+                                             class="m-icon m-icon--dropdown"
+                                          ></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="td-anchor td-anchor--start">
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </td>
+                                    <td>MF1444</td>
+                                    <td>Vũ Đình Tiến</td>
+                                    <td>Nam</td>
+                                    <td>03/10/2001</td>
+                                    <td>123456789</td>
+                                    <td>Fresher</td>
+                                    <td>Customize</td>
+                                    <td>123456789</td>
+                                    <td>ViettinBank</td>
+                                    <td>Hai Bà Trưng</td>
+                                    <td class="td-anchor td-anchor--end">
+                                       <div class="m-d-flex-auto">
+                                          <a href="" class>Sửa</a>
+
+                                          <div
+                                             class="m-icon m-icon--dropdown"
+                                          ></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="td-anchor td-anchor--start">
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </td>
+                                    <td>MF1444</td>
+                                    <td>Vũ Đình Tiến</td>
+                                    <td>Nam</td>
+                                    <td>03/10/2001</td>
+                                    <td>123456789</td>
+                                    <td>Fresher</td>
+                                    <td>Customize</td>
+                                    <td>123456789</td>
+                                    <td>ViettinBank</td>
+                                    <td>Hai Bà Trưng</td>
+                                    <td class="td-anchor td-anchor--end">
+                                       <div class="m-d-flex-auto">
+                                          <a href="" class>Sửa</a>
+
+                                          <div
+                                             class="m-icon m-icon--dropdown"
+                                          ></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="td-anchor td-anchor--start">
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </td>
+                                    <td>MF1444</td>
+                                    <td>Vũ Đình Tiến</td>
+                                    <td>Nam</td>
+                                    <td>03/10/2001</td>
+                                    <td>123456789</td>
+                                    <td>Fresher</td>
+                                    <td>Customize</td>
+                                    <td>123456789</td>
+                                    <td>ViettinBank</td>
+                                    <td>Hai Bà Trưng</td>
+                                    <td class="td-anchor td-anchor--end">
+                                       <div class="m-d-flex-auto">
+                                          <a href="" class>Sửa</a>
+
+                                          <div
+                                             class="m-icon m-icon--dropdown"
+                                          ></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="td-anchor td-anchor--start">
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </td>
+                                    <td>MF1444</td>
+                                    <td>Vũ Đình Tiến</td>
+                                    <td>Nam</td>
+                                    <td>03/10/2001</td>
+                                    <td>123456789</td>
+                                    <td>Fresher</td>
+                                    <td>Customize</td>
+                                    <td>123456789</td>
+                                    <td>ViettinBank</td>
+                                    <td>Hai Bà Trưng</td>
+                                    <td class="td-anchor td-anchor--end">
+                                       <div class="m-d-flex-auto">
+                                          <a href="" class>Sửa</a>
+
+                                          <div
+                                             class="m-icon m-icon--dropdown"
+                                          ></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="td-anchor td-anchor--start">
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </td>
+                                    <td>MF1444</td>
+                                    <td>Vũ Đình Tiến</td>
+                                    <td>Nam</td>
+                                    <td>03/10/2001</td>
+                                    <td>123456789</td>
+                                    <td>Fresher</td>
+                                    <td>Customize</td>
+                                    <td>123456789</td>
+                                    <td>ViettinBank</td>
+                                    <td>Hai Bà Trưng</td>
+                                    <td class="td-anchor td-anchor--end">
+                                       <div class="m-d-flex-auto">
+                                          <a href="" class>Sửa</a>
+
+                                          <div
+                                             class="m-icon m-icon--dropdown"
+                                          ></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="td-anchor td-anchor--start">
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </td>
+                                    <td>MF1444</td>
+                                    <td>Vũ Đình Tiến</td>
+                                    <td>Nam</td>
+                                    <td>03/10/2001</td>
+                                    <td>123456789</td>
+                                    <td>Fresher</td>
+                                    <td>Customize</td>
+                                    <td>123456789</td>
+                                    <td>ViettinBank</td>
+                                    <td>Hai Bà Trưng</td>
+                                    <td class="td-anchor td-anchor--end">
+                                       <div class="m-d-flex-auto">
+                                          <a href="" class>Sửa</a>
+
+                                          <div
+                                             class="m-icon m-icon--dropdown"
+                                          ></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="td-anchor td-anchor--start">
+                                       <input
+                                          type="checkbox"
+                                          style="width: 24px; height: 24px"
+                                          class="m-d-flex"
+                                       />
+                                    </td>
+                                    <td>MF1444</td>
+                                    <td>Vũ Đình Tiến</td>
+                                    <td>Nam</td>
+                                    <td>03/10/2001</td>
+                                    <td>123456789</td>
+                                    <td>Fresher</td>
+                                    <td>Customize</td>
+                                    <td>123456789</td>
+                                    <td>ViettinBank</td>
+                                    <td>Hai Bà Trưng</td>
+                                    <td class="td-anchor td-anchor--end">
+                                       <div class="m-d-flex-auto">
+                                          <a href="" class>Sửa</a>
+
+                                          <div
+                                             class="m-icon m-icon--dropdown"
+                                          ></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <div class="m-table_pagination m-d-flex">
+                           <div class="pagination__left">
+                              Tổng số:
+                              <strong> 175 </strong>
+                              bản ghi
+                           </div>
+                           <div class="pagination__right m-d-flex">
+                              <div class="record-in-page">
+                                 <div class="textfield__container">
+                                    <input
+                                       type="text"
+                                       class="textfield__input"
+                                       readonly
+                                       value="20 bản ghi trên 1 trang"
+                                    />
+                                    <button class="textfield__icon">
+                                       <i class="fa-solid fa-chevron-down"></i>
+                                    </button>
+                                    <ul
+                                       class="dropdownlist dropdownlist--pagination"
+                                    >
+                                       <li class="dropdown__item">Hà Nội</li>
+                                       <li class="dropdown__item">
+                                          TP Hồ Chí Minh
+                                       </li>
+                                       <li class="dropdown__item">Đà Nẵng</li>
+                                       <li class="dropdown__item">Hải Phòng</li>
+                                       <li class="dropdown__item">Hải Dương</li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div
+                                 class="pagination-right__action m-d-flex m-ml-12 m-mr-12"
+                              >
+                                 <span
+                                    class="btn-pagination btn-pagination__prev"
+                                    >Trước</span
+                                 >
+                                 <div class="page-list m-d-flex">
+                                    <div class="page-item page-item">1</div>
+                                    <div class="page-item">2</div>
+                                    <div class="page-item">3</div>
+                                    <div class="page-item">...</div>
+                                    <div class="page-item">52</div>
+                                 </div>
+                                 <span
+                                    class="btn-pagination btn-pagination__last"
+                                    >Sau</span
+                                 >
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

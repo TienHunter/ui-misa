@@ -1,0 +1,28 @@
+@import url(../common/main.css);
+@import url(./components/header.css);
+@import url(./components/sidebar.css);
+@import url(./components/main.css);
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   min-width: 800px;
+   height: 100vh;
+}
+.header {
+   width: 100%;
+   height: var(--height-header);
+   /* background-color: red; */
+}
+.container {
+   display: flex;
+   height: calc(100% - var(--height-header));
+}
+.sidebar {
+   width: var(--width-sidebar);
+}
+.main {
+   flex: 1;
+   width: calc(100% - var(--width-sidebar));
+   overflow: hidden;
+}

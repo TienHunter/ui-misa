@@ -1,0 +1,116 @@
+@import url(../components/button.css);
+@import url(../components/textfield.css);
+@import url(../components/dropdown.css);
+@import url(../components/dialog.css);
+@import url(../components/table.css);
+@import url(../components/toast-message.css);
+@import url(../components/icon.css);
+@import url(../components/form.css);
+@import url(../components/checkbox.css);
+:root {
+   --height-header: 56px;
+   --width-sidebar: 200px;
+   --border-radius: 4px;
+}
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: "MISA";
+}
+button {
+   outline: none;
+   border: none;
+}
+@font-face {
+   font-family: "MISA";
+   src: url(../../assets/fonts/notosans-regular.2cb88a13.woff2);
+}
+@font-face {
+   font-family: "MISA semibold ";
+   src: url(../../assets/fonts/notosans-semibold.df3e6dc4.woff2);
+}
+@font-face {
+   font-family: "MISA bold";
+   src: url(../../assets/fonts/notosans-bold.3ede5aff.woff2);
+}
+@font-face {
+   font-family: "MISA italic";
+   src: url(../../assets/fonts/notosans-italic.1c1aaac9.woff2);
+}
+.m-text-left {
+   text-align: left;
+}
+.m-text-center {
+   text-align: center;
+}
+.m-row {
+   width: 100%;
+   margin-top: 8px;
+}
+.m-icon {
+   font-size: 20px;
+   padding: 2px;
+}
+.m-wrapper {
+   padding: 40px 24px;
+}
+.m-d-flex {
+   display: flex;
+   align-items: center;
+}
+.m-d-flex-auto {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.m-mr-8 {
+   margin-right: 8px;
+}
+.m-mr-12 {
+   margin-right: 12px;
+}
+.m-mr-24 {
+   margin-right: 24px;
+}
+.m-ml-24 {
+   margin-left: 24px;
+}
+.m-ml-12 {
+   margin-left: 12px;
+}
+.m-margin-0 {
+   margin: 0;
+}
+.hide-text-ellipsis {
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+}
+.m-mb-8 {
+   margin-bottom: 8px;
+}
+.m-mb-12 {
+   margin-bottom: 12px;
+}
+.m-mb-24 {
+   margin-bottom: 24px;
+}
+.m-mb-32 {
+   margin-bottom: 32px;
+}
+.m-ml-auto {
+   margin-left: auto;
+}
+.m-width-25 {
+   width: 25%;
+}
+.m-width-40 {
+   width: 40%;
+}
+.m-width-50 {
+   width: 50%;
+}
+.m-width-60 {
+   width: 60%;
+}

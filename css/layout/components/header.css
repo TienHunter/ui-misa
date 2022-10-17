@@ -1,0 +1,80 @@
+.header {
+}
+
+/* header left */
+.header__left {
+   width: 200px;
+   height: 100%;
+   background-color: #38393d;
+}
+.header-left__button {
+   margin: 0 16px;
+}
+.header-left__logo {
+   background: url(../../../assets/img/Logo_Module_TiengViet_White.66947422.svg)
+      no-repeat;
+   flex: 1;
+   height: 36px;
+
+   background-size: contain;
+}
+
+/* header right */
+.header__right {
+   flex: 1;
+}
+.toggle-sidebar {
+   margin: 0 10px;
+}
+/* .header-right__title {
+} */
+.header-right__title span {
+   padding-left: 10px;
+   /* overflow: hidden;
+   white-space: nowrap; */
+   font-weight: 600;
+   max-width: 200px;
+   /* text-overflow: ellipsis; */
+   transition: all 0.2s ease;
+   font-size: 14px;
+   color: #111;
+}
+.header-rigth__search {
+   margin: auto;
+}
+.header-right__icons {
+   margin-left: auto;
+}
+.header-right__icon {
+   position: relative;
+   height: 56px;
+   padding: 0 12px;
+}
+.header-right__icon::after {
+   display: none;
+   content: "";
+   position: absolute;
+   bottom: -16px;
+   left: 0;
+   border-bottom: 8px solid transparent;
+   border-left: 24px solid transparent;
+   border-right: 24px solid transparent;
+   border-top: 8px solid #000;
+}
+.header-right__icon:hover {
+   background-color: #000;
+}
+.header-right__icon:hover.header-right__icon::after {
+   display: block;
+}
+.header-right__user {
+   padding: 0 12px;
+   /* border: 1px solid green; */
+   height: var(--height-header);
+   cursor: pointer;
+}
+.header-user__avatar {
+   border-radius: 50%;
+   overflow: hidden;
+   margin-right: 12px;
+}

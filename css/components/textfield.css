@@ -1,0 +1,68 @@
+.textfield__label {
+   display: block;
+   font-size: 14px;
+   line-height: 18px;
+   font-weight: 600;
+   color: #1f1f1f;
+   text-align: left;
+   margin-bottom: 8px;
+}
+.textfield__container {
+   position: relative;
+   width: 100%;
+   height: 36px;
+   margin-bottom: 24px;
+}
+.textfield__container--radio {
+   display: flex;
+   align-items: center;
+}
+.textfield__container--radio + .textfield__container--radio {
+   margin-left: 24px;
+}
+.textfield__input {
+   width: 100%;
+   padding: 8px 36px 8px 12px;
+   border: 1px solid #e0e0e0;
+   font-size: 14px;
+   line-height: 20px;
+   text-align: left;
+   border-radius: var(--border-radius);
+   outline: none;
+}
+.textfield__input::placeholder {
+   color: #9e9e9e;
+}
+.textfield__input:hover {
+   background-color: #f6f6f6;
+}
+.textfield__input:focus {
+   border-color: #50b83c;
+   background-color: #fff;
+}
+.textfield__icon {
+   position: absolute;
+   top: calc(50% + 2px);
+   right: 1px;
+   transform: translateY(calc(-50% - 1px));
+   font-size: 16px;
+   height: 36px;
+   width: 36px;
+   color: #666666;
+   background-color: transparent;
+   border-top-right-radius: var(--border-radius);
+   border-bottom-right-radius: var(--border-radius);
+   cursor: pointer;
+}
+.textfield__icon:focus {
+   background-color: #ebebeb;
+}
+.textfield__input--radio {
+   width: 24px;
+   height: 24px;
+   margin-right: 8px;
+}
+.textfield__container > span {
+   font-size: 14px;
+   color: #1f1f1f;
+}

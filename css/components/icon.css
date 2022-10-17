@@ -1,0 +1,104 @@
+.m-icon-wrapper {
+   width: 36px;
+   height: 36px;
+   /* background-color: orange; */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+}
+.m-icon {
+   background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat;
+   width: 24px;
+   height: 24px;
+   cursor: pointer;
+}
+.m-icon + .m-icon {
+   margin-left: 8px;
+}
+.m-icon--option {
+   background-position: -425px -88px;
+}
+.m-icon--menu {
+   background-position: -843px -30px;
+}
+.m-icon--chervon-down {
+   background-position: -1124px -357px;
+}
+.m-icon--bell {
+   background-position: -257px -32px;
+}
+.m-icon--message {
+   background-position: -368px -32px;
+}
+.m-icon--questioon {
+   background-position: -201px -33px;
+}
+.m-icon--no-avatar {
+   background-position: -352px -894px;
+   width: 32px;
+   height: 32px;
+}
+.m-icon--general {
+   background-position: -29px -1629px;
+}
+.m-icon--general--selected {
+   background-position: -30px -1585px !important;
+}
+.m-icon--cash {
+   background-position: -73px -1628px;
+}
+.m-icon--deposits {
+   background-position: -117px -1630px;
+}
+.m-icon--purchase {
+   background-position: -161px -1630px;
+}
+.m-icon--sell {
+   background-position: -205px -1628px;
+}
+.m-icon--billManagement {
+   background-position: -249px -1629px;
+}
+.m-icon--warehouse {
+   background-position: -291px -1629px;
+}
+.m-icon--tools {
+   background-position: -335px -1630px;
+}
+.m-icon--fixedAssets {
+   background-position: -378px -1630px;
+}
+.m-icon--tax {
+   background-position: -423px -1630px;
+}
+.m-icon--price {
+   background-position: -467px -1629px;
+}
+.m-icon--synthetic {
+   background-position: -510px -1629px;
+}
+.m-icon--budget {
+   background-position: -378px -1660px;
+}
+.m-icon--report {
+   background-position: -547px -1631px;
+}
+.m-icon--financialAnalysis {
+   background-position: -204px -1662px;
+}
+.m-icon--refresh {
+   background-position: -1096px -88px;
+}
+.m-icon--excel {
+   background-position: -1265px -88px;
+}
+.m-icon--dropdown {
+   background-position: -892px -355px;
+}
+.m-icon--help {
+   background-position: -88px -144px;
+}
+.m-icon--close {
+   background-position: -144px -144px;
+}

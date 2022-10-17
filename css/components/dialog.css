@@ -1,0 +1,49 @@
+.dialog {
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-color: #bebebebe;
+}
+.dialog-wrapper {
+   display: flex;
+   flex-direction: column;
+   width: 400px;
+   height: 200px;
+   margin: auto;
+   margin-top: 200px;
+   background-color: #fff;
+   padding: 24px;
+   border-radius: var(--border-radius);
+}
+.dialog__header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.dialog__title {
+   font-family: "MISA bold";
+   font-size: 20px;
+   color: #1f1f1f;
+   text-align: left;
+}
+.dialog__close {
+   background-color: transparent;
+   font-size: 20px;
+   width: 24px;
+   height: 24px;
+   line-height: 24px;
+}
+.dialog__content {
+   padding: 24px 0;
+}
+.dialog__action {
+   margin-top: auto;
+   /* align-self: flex-end; */
+   display: flex;
+   justify-content: flex-end;
+}
+.dialog-action__btn + .dialog-action__btn {
+   margin-left: 8px;
+}
