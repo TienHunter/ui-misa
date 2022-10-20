@@ -3,6 +3,9 @@
    height: 100%;
    overflow-y: auto;
 }
+.sidebar--collapse {
+   width: 82px !important;
+}
 .sidebar-content {
    padding: 20px 12px 0px;
 }

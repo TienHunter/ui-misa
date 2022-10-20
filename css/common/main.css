@@ -7,6 +7,8 @@
 @import url(../components/icon.css);
 @import url(../components/form.css);
 @import url(../components/checkbox.css);
+@import url(../components/popup.css);
+@import url(../components/input.css);
 :root {
    --height-header: 56px;
    --width-sidebar: 200px;
@@ -113,4 +115,7 @@ button {
 }
 .m-width-60 {
    width: 60%;
+}
+.m-pb-12 {
+   padding-bottom: 12px;
 }

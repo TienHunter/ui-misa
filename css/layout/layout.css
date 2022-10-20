@@ -23,6 +23,6 @@
 }
 .main {
    flex: 1;
-   width: calc(100% - var(--width-sidebar));
+   /* width: calc(100% - var(--width-sidebar)); */
    overflow: hidden;
 }

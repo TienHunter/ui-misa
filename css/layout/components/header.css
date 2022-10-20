@@ -24,10 +24,17 @@
    flex: 1;
 }
 .toggle-sidebar {
-   margin: 0 10px;
+   height: var(--height-header);
+   justify-content: center;
+   padding: 0 10px;
+   background-position: -316px -37px;
 }
 /* .header-right__title {
 } */
+.collapse-sidebar {
+   width: 82px;
+   background-color: #38393d;
+}
 .header-right__title span {
    padding-left: 10px;
    /* overflow: hidden;

@@ -22,7 +22,7 @@
                <div class="header-left__logo"></div>
             </div>
             <div class="header__right m-d-flex">
-               <div class="toggle-sidebar">
+               <div class="toggle-sidebar m-d-flex">
                   <div class="m-icon m-icon--menu"></div>
                </div>
                <div class="header-right__title m-d-flex">
@@ -161,12 +161,17 @@
                <div class="main__header m-d-flex">
                   <span class="main-header__title">Nhân viên</span>
                   <div class="main-header__actions m-d-flex">
-                     <button class="btn btn-primary">Thêm mới nhân viên</button>
+                     <button class="btn btn-primary btn__add-employee">
+                        Thêm mới nhân viên
+                     </button>
                   </div>
                </div>
                <div class="main__content">
                   <div class="main-content__tools m-d-flex">
-                     <div class="textfield__container m-margin-0 m-mr-12">
+                     <div
+                        class="textfield__container m-margin-0 m-mr-12"
+                        style="width: 260px"
+                     >
                         <input type="text" class="textfield__input" />
                         <button class="textfield__icon">
                            <i class="fa-solid fa-magnifying-glass"></i>
@@ -182,333 +187,277 @@
                      </div>
                   </div>
                   <div class="main-content__table">
-                     <div class="m-table-wrapper">
-                        <div class="m-table__content">
-                           <table>
-                              <thead>
-                                 <tr>
-                                    <th
-                                       style="min-width: 40px"
-                                       class="th-anchor"
-                                    >
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </th>
-                                    <th style="min-width: 160px">
-                                       Mã nhân viên
-                                    </th>
-                                    <th style="min-width: 160px">
-                                       Tên nhân viên
-                                    </th>
-                                    <th style="min-width: 160px">Giới tính</th>
-                                    <th style="min-width: 160px">Ngày sinh</th>
-                                    <th style="min-width: 160px">Số CMND</th>
-                                    <th style="min-width: 160px">Chức danh</th>
-                                    <th style="min-width: 160px">Tên đơn vị</th>
-                                    <th style="min-width: 160px">
-                                       Số tài khoản
-                                    </th>
-                                    <th style="min-width: 160px">
-                                       Tên ngân hàng
-                                    </th>
-                                    <th style="min-width: 160px">
-                                       Chi nhánh ngân hàng
-                                    </th>
-                                    <th
-                                       style="min-width: 160px"
-                                       class="th-anchor th-anchor--end"
-                                    >
-                                       Chức năng
-                                    </th>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                 <tr>
-                                    <td class="td-anchor td-anchor--start">
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </td>
-                                    <td>MF1444</td>
-                                    <td>Vũ Đình Tiến</td>
-                                    <td>Nam</td>
-                                    <td>03/10/2001</td>
-                                    <td>123456789</td>
-                                    <td>Fresher</td>
-                                    <td>Customize</td>
-                                    <td>123456789</td>
-                                    <td>ViettinBank</td>
-                                    <td>Hai Bà Trưng</td>
-                                    <td class="td-anchor td-anchor--end">
-                                       <div class="m-d-flex-auto">
-                                          <a href="" class>Sửa</a>
+                     <div class="m-table__content">
+                        <table>
+                           <thead>
+                              <tr>
+                                 <th style="min-width: 40px" class="th-anchor">
+                                    <input type="checkbox" />
+                                 </th>
+                                 <th style="min-width: 160px">Mã nhân viên</th>
+                                 <th style="min-width: 160px">Tên nhân viên</th>
+                                 <th style="min-width: 160px">Giới tính</th>
+                                 <th style="min-width: 160px">Ngày sinh</th>
+                                 <th style="min-width: 160px">Số CMND</th>
+                                 <th style="min-width: 160px">Chức danh</th>
+                                 <th style="min-width: 160px">Tên đơn vị</th>
+                                 <th style="min-width: 160px">Số tài khoản</th>
+                                 <th style="min-width: 160px">Tên ngân hàng</th>
+                                 <th style="min-width: 160px">
+                                    Chi nhánh ngân hàng
+                                 </th>
+                                 <th
+                                    style="min-width: 120px"
+                                    class="th-anchor th-anchor--end"
+                                 >
+                                    Chức năng
+                                 </th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td class="td-anchor td-anchor--start">
+                                    <input type="checkbox" />
+                                 </td>
+                                 <td>MF1444</td>
+                                 <td>Vũ Đình Tiến</td>
+                                 <td>Nam</td>
+                                 <td>03/10/2001</td>
+                                 <td>123456789</td>
+                                 <td>Fresher</td>
+                                 <td>Customize</td>
+                                 <td>123456789</td>
+                                 <td>ViettinBank</td>
+                                 <td>Hai Bà Trưng</td>
+                                 <td class="td-anchor td-anchor--end">
+                                    <div class="m-d-flex-auto">
+                                       <a href="" class>Sửa</a>
 
-                                          <div
-                                             class="m-icon m-icon--dropdown"
-                                          ></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="td-anchor td-anchor--start">
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </td>
-                                    <td>MF1444</td>
-                                    <td>Vũ Đình Tiến</td>
-                                    <td>Nam</td>
-                                    <td>03/10/2001</td>
-                                    <td>123456789</td>
-                                    <td>Fresher</td>
-                                    <td>Customize</td>
-                                    <td>123456789</td>
-                                    <td>ViettinBank</td>
-                                    <td>Hai Bà Trưng</td>
-                                    <td class="td-anchor td-anchor--end">
-                                       <div class="m-d-flex-auto">
-                                          <a href="" class>Sửa</a>
+                                       <div
+                                          class="m-icon m-icon--dropdown"
+                                       ></div>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="td-anchor td-anchor--start">
+                                    <input type="checkbox" />
+                                 </td>
+                                 <td>MF1444</td>
+                                 <td>Vũ Đình Tiến</td>
+                                 <td>Nam</td>
+                                 <td>03/10/2001</td>
+                                 <td>123456789</td>
+                                 <td>Fresher</td>
+                                 <td>Customize</td>
+                                 <td>123456789</td>
+                                 <td>ViettinBank</td>
+                                 <td>Hai Bà Trưng</td>
+                                 <td class="td-anchor td-anchor--end">
+                                    <div class="m-d-flex-auto">
+                                       <a href="" class>Sửa</a>
 
-                                          <div
-                                             class="m-icon m-icon--dropdown"
-                                          ></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="td-anchor td-anchor--start">
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </td>
-                                    <td>MF1444</td>
-                                    <td>Vũ Đình Tiến</td>
-                                    <td>Nam</td>
-                                    <td>03/10/2001</td>
-                                    <td>123456789</td>
-                                    <td>Fresher</td>
-                                    <td>Customize</td>
-                                    <td>123456789</td>
-                                    <td>ViettinBank</td>
-                                    <td>Hai Bà Trưng</td>
-                                    <td class="td-anchor td-anchor--end">
-                                       <div class="m-d-flex-auto">
-                                          <a href="" class>Sửa</a>
+                                       <div
+                                          class="m-icon m-icon--dropdown"
+                                       ></div>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="td-anchor td-anchor--start">
+                                    <input type="checkbox" />
+                                 </td>
+                                 <td>MF1444</td>
+                                 <td>Vũ Đình Tiến</td>
+                                 <td>Nam</td>
+                                 <td>03/10/2001</td>
+                                 <td>123456789</td>
+                                 <td>Fresher</td>
+                                 <td>Customize</td>
+                                 <td>123456789</td>
+                                 <td>ViettinBank</td>
+                                 <td>Hai Bà Trưng</td>
+                                 <td class="td-anchor td-anchor--end">
+                                    <div class="m-d-flex-auto">
+                                       <a href="" class>Sửa</a>
 
-                                          <div
-                                             class="m-icon m-icon--dropdown"
-                                          ></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="td-anchor td-anchor--start">
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </td>
-                                    <td>MF1444</td>
-                                    <td>Vũ Đình Tiến</td>
-                                    <td>Nam</td>
-                                    <td>03/10/2001</td>
-                                    <td>123456789</td>
-                                    <td>Fresher</td>
-                                    <td>Customize</td>
-                                    <td>123456789</td>
-                                    <td>ViettinBank</td>
-                                    <td>Hai Bà Trưng</td>
-                                    <td class="td-anchor td-anchor--end">
-                                       <div class="m-d-flex-auto">
-                                          <a href="" class>Sửa</a>
+                                       <div
+                                          class="m-icon m-icon--dropdown"
+                                       ></div>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="td-anchor td-anchor--start">
+                                    <input type="checkbox" />
+                                 </td>
+                                 <td>MF1444</td>
+                                 <td>Vũ Đình Tiến</td>
+                                 <td>Nam</td>
+                                 <td>03/10/2001</td>
+                                 <td>123456789</td>
+                                 <td>Fresher</td>
+                                 <td>Customize</td>
+                                 <td>123456789</td>
+                                 <td>ViettinBank</td>
+                                 <td>Hai Bà Trưng</td>
+                                 <td class="td-anchor td-anchor--end">
+                                    <div class="m-d-flex-auto">
+                                       <a href="" class>Sửa</a>
 
-                                          <div
-                                             class="m-icon m-icon--dropdown"
-                                          ></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="td-anchor td-anchor--start">
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </td>
-                                    <td>MF1444</td>
-                                    <td>Vũ Đình Tiến</td>
-                                    <td>Nam</td>
-                                    <td>03/10/2001</td>
-                                    <td>123456789</td>
-                                    <td>Fresher</td>
-                                    <td>Customize</td>
-                                    <td>123456789</td>
-                                    <td>ViettinBank</td>
-                                    <td>Hai Bà Trưng</td>
-                                    <td class="td-anchor td-anchor--end">
-                                       <div class="m-d-flex-auto">
-                                          <a href="" class>Sửa</a>
+                                       <div
+                                          class="m-icon m-icon--dropdown"
+                                       ></div>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="td-anchor td-anchor--start">
+                                    <input type="checkbox" />
+                                 </td>
+                                 <td>MF1444</td>
+                                 <td>Vũ Đình Tiến</td>
+                                 <td>Nam</td>
+                                 <td>03/10/2001</td>
+                                 <td>123456789</td>
+                                 <td>Fresher</td>
+                                 <td>Customize</td>
+                                 <td>123456789</td>
+                                 <td>ViettinBank</td>
+                                 <td>Hai Bà Trưng</td>
+                                 <td class="td-anchor td-anchor--end">
+                                    <div class="m-d-flex-auto">
+                                       <a href="" class>Sửa</a>
 
-                                          <div
-                                             class="m-icon m-icon--dropdown"
-                                          ></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="td-anchor td-anchor--start">
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </td>
-                                    <td>MF1444</td>
-                                    <td>Vũ Đình Tiến</td>
-                                    <td>Nam</td>
-                                    <td>03/10/2001</td>
-                                    <td>123456789</td>
-                                    <td>Fresher</td>
-                                    <td>Customize</td>
-                                    <td>123456789</td>
-                                    <td>ViettinBank</td>
-                                    <td>Hai Bà Trưng</td>
-                                    <td class="td-anchor td-anchor--end">
-                                       <div class="m-d-flex-auto">
-                                          <a href="" class>Sửa</a>
+                                       <div
+                                          class="m-icon m-icon--dropdown"
+                                       ></div>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="td-anchor td-anchor--start">
+                                    <input type="checkbox" />
+                                 </td>
+                                 <td>MF1444</td>
+                                 <td>Vũ Đình Tiến</td>
+                                 <td>Nam</td>
+                                 <td>03/10/2001</td>
+                                 <td>123456789</td>
+                                 <td>Fresher</td>
+                                 <td>Customize</td>
+                                 <td>123456789</td>
+                                 <td>ViettinBank</td>
+                                 <td>Hai Bà Trưng</td>
+                                 <td class="td-anchor td-anchor--end">
+                                    <div class="m-d-flex-auto">
+                                       <a href="" class>Sửa</a>
 
-                                          <div
-                                             class="m-icon m-icon--dropdown"
-                                          ></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="td-anchor td-anchor--start">
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </td>
-                                    <td>MF1444</td>
-                                    <td>Vũ Đình Tiến</td>
-                                    <td>Nam</td>
-                                    <td>03/10/2001</td>
-                                    <td>123456789</td>
-                                    <td>Fresher</td>
-                                    <td>Customize</td>
-                                    <td>123456789</td>
-                                    <td>ViettinBank</td>
-                                    <td>Hai Bà Trưng</td>
-                                    <td class="td-anchor td-anchor--end">
-                                       <div class="m-d-flex-auto">
-                                          <a href="" class>Sửa</a>
+                                       <div
+                                          class="m-icon m-icon--dropdown"
+                                       ></div>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="td-anchor td-anchor--start">
+                                    <input type="checkbox" />
+                                 </td>
+                                 <td>MF1444</td>
+                                 <td>Vũ Đình Tiến</td>
+                                 <td>Nam</td>
+                                 <td>03/10/2001</td>
+                                 <td>123456789</td>
+                                 <td>Fresher</td>
+                                 <td>Customize</td>
+                                 <td>123456789</td>
+                                 <td>ViettinBank</td>
+                                 <td>Hai Bà Trưng</td>
+                                 <td class="td-anchor td-anchor--end">
+                                    <div class="m-d-flex-auto">
+                                       <a href="" class>Sửa</a>
 
-                                          <div
-                                             class="m-icon m-icon--dropdown"
-                                          ></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="td-anchor td-anchor--start">
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </td>
-                                    <td>MF1444</td>
-                                    <td>Vũ Đình Tiến</td>
-                                    <td>Nam</td>
-                                    <td>03/10/2001</td>
-                                    <td>123456789</td>
-                                    <td>Fresher</td>
-                                    <td>Customize</td>
-                                    <td>123456789</td>
-                                    <td>ViettinBank</td>
-                                    <td>Hai Bà Trưng</td>
-                                    <td class="td-anchor td-anchor--end">
-                                       <div class="m-d-flex-auto">
-                                          <a href="" class>Sửa</a>
+                                       <div
+                                          class="m-icon m-icon--dropdown"
+                                       ></div>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="td-anchor td-anchor--start">
+                                    <input type="checkbox" />
+                                 </td>
+                                 <td>MF1444</td>
+                                 <td>Vũ Đình Tiến</td>
+                                 <td>Nam</td>
+                                 <td>03/10/2001</td>
+                                 <td>123456789</td>
+                                 <td>Fresher</td>
+                                 <td>Customize</td>
+                                 <td>123456789</td>
+                                 <td>ViettinBank</td>
+                                 <td>Hai Bà Trưng</td>
+                                 <td class="td-anchor td-anchor--end">
+                                    <div class="m-d-flex-auto">
+                                       <a href="" class>Sửa</a>
 
-                                          <div
-                                             class="m-icon m-icon--dropdown"
-                                          ></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="td-anchor td-anchor--start">
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </td>
-                                    <td>MF1444</td>
-                                    <td>Vũ Đình Tiến</td>
-                                    <td>Nam</td>
-                                    <td>03/10/2001</td>
-                                    <td>123456789</td>
-                                    <td>Fresher</td>
-                                    <td>Customize</td>
-                                    <td>123456789</td>
-                                    <td>ViettinBank</td>
-                                    <td>Hai Bà Trưng</td>
-                                    <td class="td-anchor td-anchor--end">
-                                       <div class="m-d-flex-auto">
-                                          <a href="" class>Sửa</a>
+                                       <div
+                                          class="m-icon m-icon--dropdown"
+                                       ></div>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="td-anchor td-anchor--start">
+                                    <input type="checkbox" />
+                                 </td>
+                                 <td>MF1444</td>
+                                 <td>Vũ Đình Tiến</td>
+                                 <td>Nam</td>
+                                 <td>03/10/2001</td>
+                                 <td>123456789</td>
+                                 <td>Fresher</td>
+                                 <td>Customize</td>
+                                 <td>123456789</td>
+                                 <td>ViettinBank</td>
+                                 <td>Hai Bà Trưng</td>
+                                 <td class="td-anchor td-anchor--end">
+                                    <div class="m-d-flex-auto">
+                                       <a href="" class>Sửa</a>
 
-                                          <div
-                                             class="m-icon m-icon--dropdown"
-                                          ></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="td-anchor td-anchor--start">
-                                       <input
-                                          type="checkbox"
-                                          style="width: 24px; height: 24px"
-                                          class="m-d-flex"
-                                       />
-                                    </td>
-                                    <td>MF1444</td>
-                                    <td>Vũ Đình Tiến</td>
-                                    <td>Nam</td>
-                                    <td>03/10/2001</td>
-                                    <td>123456789</td>
-                                    <td>Fresher</td>
-                                    <td>Customize</td>
-                                    <td>123456789</td>
-                                    <td>ViettinBank</td>
-                                    <td>Hai Bà Trưng</td>
-                                    <td class="td-anchor td-anchor--end">
-                                       <div class="m-d-flex-auto">
-                                          <a href="" class>Sửa</a>
+                                       <div
+                                          class="m-icon m-icon--dropdown"
+                                       ></div>
+                                    </div>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td class="td-anchor td-anchor--start">
+                                    <input type="checkbox" />
+                                 </td>
+                                 <td>MF1444</td>
+                                 <td>Vũ Đình Tiến</td>
+                                 <td>Nam</td>
+                                 <td>03/10/2001</td>
+                                 <td>123456789</td>
+                                 <td>Fresher</td>
+                                 <td>Customize</td>
+                                 <td>123456789</td>
+                                 <td>ViettinBank</td>
+                                 <td>Hai Bà Trưng</td>
+                                 <td class="td-anchor td-anchor--end">
+                                    <div class="m-d-flex-auto">
+                                       <a href="" class>Sửa</a>
 
-                                          <div
-                                             class="m-icon m-icon--dropdown"
-                                          ></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                              </tbody>
-                           </table>
-                        </div>
+                                       <div
+                                          class="m-icon m-icon--dropdown"
+                                          style="position: relative"
+                                       ></div>
+                                    </div>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
                         <div class="m-table_pagination m-d-flex">
                            <div class="pagination__left">
                               Tổng số:
@@ -517,7 +466,7 @@
                            </div>
                            <div class="pagination__right m-d-flex">
                               <div class="record-in-page">
-                                 <div class="textfield__container">
+                                 <div class="textfield__container m-margin-0">
                                     <input
                                        type="text"
                                        class="textfield__input"
@@ -548,7 +497,9 @@
                                     >Trước</span
                                  >
                                  <div class="page-list m-d-flex">
-                                    <div class="page-item page-item">1</div>
+                                    <div class="page-item page-item--current">
+                                       1
+                                    </div>
                                     <div class="page-item">2</div>
                                     <div class="page-item">3</div>
                                     <div class="page-item">...</div>
@@ -567,5 +518,254 @@
             </div>
          </div>
       </div>
+      <div class="m-form-wrapper">
+         <form action="">
+            <div class="m-form-container">
+               <div class="form__header m-d-flex">
+                  <div class="form-header__title m-mr-12">
+                     Thông tin nhân viên
+                  </div>
+                  <div class="form-header__option m-d-flex">
+                     <div class="m-wrapper-checkbox">
+                        <input type="checkbox" style="margin-right: 8px" />
+                        <span class="checkmark">Là khách hàng</span>
+                     </div>
+                     <div class="m-wrapper-checkbox">
+                        <input type="checkbox" style="margin-right: 8px" />
+                        <span class="checkmark">Là nhà cung cấp</span>
+                     </div>
+                  </div>
+                  <div class="form-header__action m-d-flex m-ml-auto">
+                     <div class="m-icon m-icon--help"></div>
+                     <div class="m-icon m-icon--close"></div>
+                  </div>
+               </div>
+               <div class="form__content">
+                  <div class="form-content__top">
+                     <div class="form-content__left m-mr-24">
+                        <div class="m-d-flex">
+                           <div class="textfield-wrapper m-width-40 m-mr-8">
+                              <label for="" class="textfield__label">
+                                 Mã
+                                 <span class="textfield__label--require"
+                                    >*</span
+                                 >
+                              </label>
+                              <div class="textfield__container">
+                                 <input
+                                    type="text"
+                                    class="textfield__input textfield__input--require"
+                                 />
+                                 <p
+                                    class="input-error hide-text-ellipsis"
+                                    title="Trường này không được để trống"
+                                 >
+                                    Trường này không được để trống
+                                 </p>
+                              </div>
+                           </div>
+                           <div class="textfield-wrapper m-width-60">
+                              <label for="" class="textfield__label">
+                                 Tên
+                                 <span class="textfield__label--require"
+                                    >*</span
+                                 >
+                              </label>
+                              <div class="textfield__container">
+                                 <input
+                                    type="text"
+                                    class="textfield__input textfield__input--require"
+                                 />
+                                 <p
+                                    class="input-error hide-text-ellipsis"
+                                    title="Trường này không được để trống"
+                                 >
+                                    Trường này không được để trống
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="textfield-wrapper">
+                           <label for="" class="textfield__label">
+                              Đơn vị
+                              <span class="textfield__label--require">*</span>
+                           </label>
+                           <div class="textfield__container">
+                              <input type="text" class="textfield__input" />
+                              <button class="textfield__icon">
+                                 <i class="fa-solid fa-chevron-down"></i>
+                              </button>
+                              <p class="input-error hide-text-ellipsis">
+                                 Trường này không được để trống
+                              </p>
+                           </div>
+                        </div>
+                        <div class="textfield-wrapper">
+                           <label for="" class="textfield__label">
+                              Chức danh
+                           </label>
+                           <div class="textfield__container">
+                              <input type="text" class="textfield__input" />
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-content__right">
+                        <div class="m-d-flex">
+                           <div class="textfield-wrapper m-width-40 m-mr-8">
+                              <label for="" class="textfield__label"
+                                 >Ngày sinh</label
+                              >
+                              <div class="textfield__container">
+                                 <input
+                                    type="date"
+                                    class="textfield__input textfield__input--date"
+                                 />
+                              </div>
+                           </div>
+                           <div class="textfield-wrapper m-width-60">
+                              <label for="" class="textfield__label">
+                                 Giới tính
+                              </label>
+                              <div class="m-d-flex">
+                                 <div
+                                    class="textfield__container textfield__container--radio"
+                                 >
+                                    <input
+                                       type="radio"
+                                       class="textfield__input--radio"
+                                    />
+                                    <span>Nam</span>
+                                 </div>
+                                 <div
+                                    class="textfield__container textfield__container--radio"
+                                 >
+                                    <input
+                                       type="radio"
+                                       class="textfield__input--radio"
+                                    />
+                                    <span>Nữ</span>
+                                 </div>
+                                 <div
+                                    class="textfield__container textfield__container--radio"
+                                 >
+                                    <input
+                                       type="radio"
+                                       class="textfield__input--radio"
+                                    />
+                                    <span>Khác</span>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="m-d-flex">
+                           <div class="textfield-wrapper m-width-60 m-mr-8">
+                              <label for="" class="textfield__label">
+                                 Số CMND
+                              </label>
+                              <div class="textfield__container">
+                                 <input type="text" class="textfield__input" />
+                              </div>
+                           </div>
+                           <div class="textfield-wrapper m-width-40">
+                              <label for="" class="textfield__label">
+                                 Ngày cấp
+                              </label>
+                              <div class="textfield__container">
+                                 <input
+                                    type="date"
+                                    class="textfield__input textfield__input--date"
+                                 />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="textfield-wrapper">
+                           <label for="" class="textfield__label">
+                              Nơi cấp
+                           </label>
+                           <div class="textfield__container">
+                              <input type="text" class="textfield__input" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-content__bottom m-pb-12">
+                     <div class="textfield-wrapper">
+                        <label for="" class="textfield__label"> Địa chỉ </label>
+                        <div class="textfield__container">
+                           <input type="text" class="textfield__input" />
+                        </div>
+                     </div>
+                     <div class="m-d-flex">
+                        <div class="textfield-wrapper m-mr-8 m-width-25">
+                           <label for="" class="textfield__label">
+                              ĐT di động
+                           </label>
+                           <div class="textfield__container">
+                              <input type="text" class="textfield__input" />
+                           </div>
+                        </div>
+                        <div class="textfield-wrapper m-mr-8 m-width-25">
+                           <label for="" class="textfield__label">
+                              ĐT cố định
+                           </label>
+                           <div class="textfield__container">
+                              <input type="text" class="textfield__input" />
+                           </div>
+                        </div>
+                        <div class="textfield-wrapper m-mr-8 m-width-25">
+                           <label for="" class="textfield__label">
+                              email
+                           </label>
+                           <div class="textfield__container">
+                              <input type="text" class="textfield__input" />
+                           </div>
+                        </div>
+                        <div class="m-width-25"></div>
+                     </div>
+                     <div class="m-d-flex">
+                        <div class="textfield-wrapper m-mr-8 m-width-25">
+                           <label for="" class="textfield__label">
+                              Tài khoản ngân hàng
+                           </label>
+                           <div class="textfield__container">
+                              <input type="text" class="textfield__input" />
+                           </div>
+                        </div>
+                        <div class="textfield-wrapper m-mr-8 m-width-25">
+                           <label for="" class="textfield__label">
+                              Tên ngân hàng
+                           </label>
+                           <div class="textfield__container">
+                              <input type="text" class="textfield__input" />
+                           </div>
+                        </div>
+                        <div class="textfield-wrapper m-mr-8 m-width-25">
+                           <label for="" class="textfield__label">
+                              Chi nhánh
+                           </label>
+                           <div class="textfield__container">
+                              <input type="text" class="textfield__input" />
+                           </div>
+                        </div>
+                        <div class="m-width-25"></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="form__footer m-d-flex">
+                  <div class="form-footer__left">
+                     <button class="btn btn-sub">Hủy</button>
+                  </div>
+                  <div class="form-footer__right">
+                     <button class="btn btn-sub">Cất</button>
+                     <button type="button" class="btn btn-primary">
+                        Cất và thêm mới
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
    </body>
+   <script src="../js/jquery-3.6.1.min.js"></script>
+   <script src="../js/employee.js"></script>
 </html>

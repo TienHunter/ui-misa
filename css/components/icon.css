@@ -22,6 +22,9 @@
 .m-icon--menu {
    background-position: -843px -30px;
 }
+.m-icon--menu-collapse {
+   background-position: -312px -32px;
+}
 .m-icon--chervon-down {
    background-position: -1124px -357px;
 }
@@ -101,4 +104,9 @@
 }
 .m-icon--close {
    background-position: -144px -144px;
+}
+.m-icon__help-popup {
+   width: 36px;
+   height: 36px;
+   background-position: -832px -462px;
 }
