@@ -15,7 +15,7 @@
    background-color: #50b83c;
    color: #fff;
 }
-.btn-primary:focus {
+.btn-primary:active {
    background-color: #055b27;
 }
 .btn-primary:hover {
@@ -37,4 +37,12 @@
 .btn-sub:focus {
    border: 1px solid #000;
    background-color: #ebebeb;
+}
+.btn-delete {
+   background-color: #ff0000;
+   color: #fff;
+   font-weight: 600;
+}
+.btn-delete:hover {
+   background-color: #b81919;
 }

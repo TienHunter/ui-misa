@@ -3,8 +3,8 @@
 }
 .m-table__content {
    flex: 1;
-   overflow: scroll;
-   height: 100%;
+   overflow: auto;
+   height: calc(100% - 48px);
 }
 table {
    width: 100%;
@@ -60,7 +60,7 @@ tr:hover > td {
    position: sticky;
    text-align: center;
    background-color: #fff;
-   z-index: 1;
+   /* z-index: 1; */
 }
 .td-anchor--start {
    left: 0;
@@ -76,6 +76,9 @@ tr:hover > td {
    font-size: 13px;
    font-weight: 600;
    color: #0075c0;
+}
+.td-anchor--end .m-icon--dropdown {
+   margin-left: 8px;
 }
 td > input,
 th > input {
@@ -93,7 +96,7 @@ th > input {
    border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-   background: #e0e0e0;
+   background: #8b8b8b;
 }
 ::-webkit-scrollbar-track {
    background: #eeeeee;
@@ -102,9 +105,9 @@ th > input {
 .m-table_pagination {
    height: 48px;
    justify-content: space-between;
-   position: sticky;
+   /* position: sticky;
    bottom: 0;
-   left: 0;
+   left: 0; */
    width: 100%;
    z-index: 10;
    background-color: #fff;

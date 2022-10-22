@@ -23,29 +23,15 @@ input[type="checkbox"] {
    border-radius: 4px;
    background-color: #fff;
 }
-/* input[type="checkbox"]::after {
-   content: "";
-   position: absolute;
-   top: 0;
-   left: 0;
-
-   border-radius: 4px;
-   width: 24px;
-   height: 24px;
-   display: none;
-} */
-/* input[type="checkbox"]:hover {
-   background-color: #a5a5a5;
-} */
 input[type="checkbox"]:checked {
    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -1220px -358px;
    border: 1px solid #50b83c;
    animation: roll 0.2s linear;
 }
-/* input[type="checkbox"]:not(:checked):focus {
-   border: 1px solid red;
-   animation: rollback 0.5s linear;
-} */
+input[type="checkbox"]:not(:checked) {
+   transform: rotate(-90deg);
+   transition: all 0.2s linear;
+}
 @keyframes roll {
    from {
       transform: rotate(-90deg);
@@ -54,11 +40,33 @@ input[type="checkbox"]:checked {
       transform: rotate(0deg);
    }
 }
-@keyframes rollback {
-   from {
-      transform: rotate(90deg);
-   }
-   to {
-      transform: rotate(0deg);
-   }
+
+input[type="radio"] {
+   appearance: none;
+   --webkit-appearance: none;
+   position: relative;
+   cursor: pointer;
+   width: 24px;
+   height: 24px;
+   border-radius: 50%;
+   border: 1px solid #ccc;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+input[type="radio"]::after {
+   /* display: none; */
+   content: "";
+   position: absolute;
+   width: 16px;
+   height: 16px;
+   border-radius: 50%;
+   background-color: transparent;
+   transition: all 0.1s linear;
+}
+input[type="radio"]:checked {
+   border: 1px solid #50b83c;
+}
+input[type="radio"]:checked::after {
+   background-color: #50b83c;
 }

@@ -23,6 +23,9 @@ button {
    outline: none;
    border: none;
 }
+li {
+   list-style: none;
+}
 @font-face {
    font-family: "MISA";
    src: url(../../assets/fonts/notosans-regular.2cb88a13.woff2);
@@ -117,4 +120,7 @@ button {
 }
 .m-pb-12 {
    padding-bottom: 12px;
+}
+.m-pr-36 {
+   padding-right: 36px;
 }
