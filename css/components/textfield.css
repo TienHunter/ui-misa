@@ -55,8 +55,8 @@ input.textfield--error {
    right: 1px;
    transform: translateY(-50%);
    font-size: 16px;
-   height: 36px;
-   width: 36px;
+   height: 34px;
+   width: 34px;
    color: #666666;
    background-color: transparent;
    border-top-right-radius: var(--border-radius);
@@ -88,6 +88,6 @@ input.textfield--error {
 .textfield--error + .input-error {
    display: block;
 }
-.textfield__input.textfield__input--require.textfield--error + p.input-error {
+.textfield__input.textfield__input--required.textfield--error + p.input-error {
    display: block;
 }

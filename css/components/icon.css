@@ -97,8 +97,17 @@
    background-position: -1265px -88px;
 }
 .m-icon--dropdown {
-   background-position: -892px -355px;
+   background-position: -887px -350px;
+   border: 1px solid #fff;
+   width: 36px;
+   height: 36px;
 }
+.m-icon--dropdown:hover {
+   background-color: #eee;
+}
+/* .m-icon--dropdown:focus {
+   
+} */
 .m-icon--help {
    background-position: -88px -144px;
 }
@@ -109,4 +118,9 @@
    width: 36px;
    height: 36px;
    background-position: -832px -462px;
+}
+.m-icon__error-popup {
+   height: 36px;
+   width: 36px;
+   background-position: -752px -462px;
 }

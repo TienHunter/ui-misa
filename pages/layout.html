@@ -381,7 +381,7 @@
                                  <input
                                     type="text"
                                     id="ma_nhan_vien"
-                                    class="textfield__input textfield__input--require"
+                                    class="textfield__input textfield__input--required"
                                  />
                                  <p
                                     class="input-error hide-text-ellipsis"
@@ -402,7 +402,7 @@
                                  <input
                                     type="text"
                                     id="ten_nhan_vien"
-                                    class="textfield__input textfield__input--require"
+                                    class="textfield__input textfield__input--required"
                                  />
                                  <p
                                     class="input-error hide-text-ellipsis"
@@ -413,7 +413,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="textfield-wrapper">
+                        <div class="textfield-wrapper" id="ten_don_vi">
                            <label for="" class="textfield__label">
                               Đơn vị
                               <span class="textfield__label--require">*</span>
@@ -421,12 +421,32 @@
                            <div class="textfield__container">
                               <input
                                  type="text"
-                                 id="ten_don_vi"
-                                 class="textfield__input m-pr-36"
+                                 class="textfield__input textfield__input--required m-pr-36"
+                                 departmentId
                               />
-                              <button class="textfield__icon">
+                              <p
+                                 class="input-error hide-text-ellipsis"
+                                 title="Trường này không được để trống"
+                              >
+                                 Trường này không được để trống
+                              </p>
+                              <button type="button" class="textfield__icon">
                                  <i class="fa-solid fa-chevron-down"></i>
                               </button>
+                              <ul
+                                 class="dropdownlist"
+                                 style="
+                                    z-index: 1;
+                                    width: 100%;
+                                    top: calc(100% + 4px);
+                                 "
+                              >
+                                 <li class="dropdown__item">Hà Nội</li>
+                                 <li class="dropdown__item">TP Hồ Chí Minh</li>
+                                 <li class="dropdown__item">Đà Nẵng</li>
+                                 <li class="dropdown__item">Hải Phòng</li>
+                                 <li class="dropdown__item">Hải Dương</li>
+                              </ul>
                               <p class="input-error hide-text-ellipsis">
                                  Trường này không được để trống
                               </p>
@@ -471,7 +491,7 @@
                                        type="radio"
                                        class="textfield__input--radio"
                                        name="gender-form"
-                                       value="0"
+                                       value="1"
                                     />
                                     <span>Nam</span>
                                  </div>
@@ -482,7 +502,7 @@
                                        type="radio"
                                        class="textfield__input--radio"
                                        name="gender-form"
-                                       value="1"
+                                       value="0"
                                     />
                                     <span>Nữ</span>
                                  </div>
@@ -633,17 +653,66 @@
                </div>
                <div class="form__footer m-d-flex">
                   <div class="form-footer__left">
-                     <button class="btn btn-sub">Hủy</button>
+                     <button type="button" class="btn btn-sub">Hủy</button>
                   </div>
                   <div class="form-footer__right m-d-flex">
-                     <button class="btn btn-sub">Cất</button>
-                     <button type="button" class="btn btn-primary">
+                     <button type="button" class="btn btn-sub">Cất</button>
+                     <button
+                        type="button"
+                        type="button"
+                        class="btn btn-primary"
+                     >
                         Cất và thêm mới
                      </button>
                   </div>
                </div>
             </div>
          </form>
+      </div>
+
+      <div class="m-popup-wrapper warning-close-form">
+         <div class="m-popup-container">
+            <div class="popup__header"></div>
+            <div class="popup__body m-d-flex">
+               <div class="popup-body__left">
+                  <div class="m-icon m-icon__help-popup"></div>
+               </div>
+               <div class="popup-body__right">
+                  Dữ liệu đã bị thay đổi. Bạn có muốn cất không ?
+               </div>
+            </div>
+            <div class="popup__footer m-d-flex">
+               <div class="popup-footer__left">
+                  <button class="btn btn-sub">Hủy</button>
+               </div>
+               <div class="popup-footer__right">
+                  <button class="btn btn-sub">Không</button>
+                  <button class="btn btn-primary">Có</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="m-popup-wrapper error-submit-form">
+         <div class="m-popup-container">
+            <div class="popup__header"></div>
+            <div class="popup__body m-d-flex">
+               <div class="popup-body__left">
+                  <div class="m-icon m-icon__error-popup"></div>
+               </div>
+               <div class="popup-body__right">
+                  Dữ liệu đã bị thay đổi. Bạn có muốn cất không ?
+               </div>
+            </div>
+            <div class="popup__footer m-d-flex">
+               <div class="popup-footer__left">
+                  <!-- <button class="btn btn-sub">Hủy</button> -->
+               </div>
+               <div class="popup-footer__right">
+                  <!-- <button class="btn btn-sub">Không</button> -->
+                  <button class="btn btn-primary">Xác nhận</button>
+               </div>
+            </div>
+         </div>
       </div>
    </body>
    <script src="../js/jquery-3.6.1.min.js"></script>

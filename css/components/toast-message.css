@@ -1,7 +1,10 @@
-.toast-message {
+.m-toast-wrapper {
    position: fixed;
-   right: 40px;
+   right: -500px;
    bottom: 40px;
+   display: none;
+}
+.toast-message {
    width: 450px;
    height: 56px;
    display: flex;
@@ -31,8 +34,8 @@
 .toast-title--success {
    color: #50b83c;
 }
-.toast-text {
-}
+/* .toast-text {
+} */
 .toast-action {
    font-size: 14px;
    font-weight: 500;

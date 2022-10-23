@@ -8,7 +8,7 @@
    background-color: rgba(85, 79, 79, 0.2);
    justify-content: center;
    align-items: center;
-   z-index: 999;
+   z-index: 10;
 }
 .m-form-container {
    min-width: 900px;

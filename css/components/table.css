@@ -72,14 +72,18 @@ tr:hover > td {
    border-left: 1px dotted #c7c7c7;
 }
 .td-anchor--end a {
+   height: 36px;
+   line-height: 36px;
    text-decoration: none;
    font-size: 13px;
    font-weight: 600;
    color: #0075c0;
+   padding: 0 4px;
 }
-.td-anchor--end .m-icon--dropdown {
-   margin-left: 8px;
+.td-anchor--end a:hover {
+   background-color: #eee;
 }
+
 td > input,
 th > input {
    cursor: pointer;
