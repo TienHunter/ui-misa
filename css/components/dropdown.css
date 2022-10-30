@@ -31,6 +31,7 @@
    display: none;
    top: unset;
    bottom: calc(100% + 1px);
+   width: 100%;
 }
 #ten_don_vi ul li.active {
    background-color: #50b83c;

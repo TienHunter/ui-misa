@@ -5,6 +5,7 @@
 $(document).ready(function () {
    initEvents();
    loadData();
+   deleteMulti();
 });
 /**
  * khởi tạo các sự kiện
@@ -19,6 +20,10 @@ function initEvents() {
          // open Form
          openForm();
       });
+      // hanlde tabIndex
+      handleTabIndex();
+      // handle dropdown records in page pagination
+      handleDropdownPaginate();
 
       // hanlde click btn close form
       $(".form-header__action .m-icon--close").click(function () {
@@ -32,9 +37,17 @@ function initEvents() {
             ".m-popup-wrapper.warning-close-form .popup-footer__right .btn-sub"
          ).click(function () {
             $(".m-popup-wrapper.warning-close-form").css("display", "none");
+            $(".textfield__input--required").each(function () {
+               $(this).removeClass("textfield--error");
+            });
             hideForm();
          });
-         // hide Form
+         $(
+            ".m-popup-wrapper.warning-close-form .popup-footer__right .btn-primary"
+         ).click(function () {
+            $(".m-popup-wrapper.warning-close-form").css("display", "none");
+            handleSaveOnClick();
+         });
       });
       // hanlde click btn Hủy form
       $(".form-footer__left .btn-sub").click(function () {
@@ -42,7 +55,7 @@ function initEvents() {
          hideForm();
       });
       // handleSaveOnClick
-      handleSaveOnClick();
+      $(".form-footer__right .btn-primary").click(handleSaveOnClick);
    } catch (error) {
       console.error(error);
    }
@@ -51,20 +64,24 @@ function initEvents() {
  * load dữ liêu từ db
  * author VDTien (21/10/2022)
  */
-async function loadData() {
+async function loadData(pageSize = 20, pageNumber = 1) {
    let numberReords;
+   let totalPages;
    try {
       // gọi api thực hiện lấy dữ liệu
       await $.ajax({
          type: "GET",
-         url: "https://amis.manhnv.net/api/v1/Employees",
+         url: `https://amis.manhnv.net/api/v1/Employees/filter?pageSize=${pageSize}&pageNumber=${pageNumber}`,
          success: function (response) {
-            numberReords = response.length;
+            records = response.Data;
+            numberReords = response.TotalRecord;
+            totalPages = response.TotalPage;
             // empty table current
             $(".m-table__content tbody").empty();
-            for (const item of response) {
+            for (const item of records) {
                // console.log(item);
                const {
+                  EmployeeId,
                   EmployeeCode,
                   EmployeeName,
                   Gender,
@@ -81,32 +98,31 @@ async function loadData() {
                   `
                      <tr>
                         <td class="td-anchor td-anchor--start">
-                           <input type="checkbox" />
+                           <input type="checkbox" employeeID=${EmployeeId} />
                         </td>
-                        <td>${EmployeeCode}</td>
-                        <td>${EmployeeName}</td>
-                        <td>${GenderName}</td>
+                        <td>${convertNullString(EmployeeCode)}</td>
+                        <td>${convertNullString(EmployeeName)}</td>
+                        <td>${convertNullString(GenderName)}</td>
                         <td class="m-text-center">${convertDateOfBirth(
                            DateOfBirth
                         )}</td>
-                        <td>${IdentityNumber}</td>
-                        <td>${IdentityPlace}</td>
-                        <td>${DepartmentName}</td>
-                        <td>${BankAccountNumber}</td>
-                        <td>${BankName}</td>
-                        <td>${BankBranchName}</td>
-                        <td class="td-anchor td-anchor--end m-d-flex-auto">
+                        <td>${convertNullString(IdentityNumber)}</td>
+                        <td>${convertNullString(IdentityPlace)}</td>
+                        <td>${convertNullString(DepartmentName)}</td>
+                        <td>${convertNullString(BankAccountNumber)}</td>
+                        <td>${convertNullString(BankName)}</td>
+                        <td>${convertNullString(BankBranchName)}</td>
+                        <td class="td-anchor td-anchor--end m-d-flex-auto" >
 
-                              <a href="#" class>Sửa</a>
+                              <a href="#" onclick="onEditBtn('${EmployeeId}')">Sửa</a>
 
                                  <div
                                  class="m-icon m-icon--dropdown"
                                  style="position:relative"
                                  >
                                     <ul class='dropdownlist'>
-                                       <li class='dropdown__item'>Nhân bản</li>
-                                       <li class='dropdown__item'>Xóa</li>
-                                 
+                                       <li class='dropdown__item' EmployeeCode=${EmployeeCode}>Nhân bản</li>
+                                       <li class='dropdown__item' onclick="onDelete('${EmployeeId}')">Xóa</li>
                                     </ul>
                                  </div>
                         </td>
@@ -114,27 +130,12 @@ async function loadData() {
                   `
                );
             }
-            $(".td-anchor.td-anchor--end a").click(function () {
-               openForm();
-            });
-            $(document).click(function (e) {
-               let _this;
-               $(".td-anchor.td-anchor--end .m-icon--dropdown").click(
-                  function () {
-                     _this = $(this);
-                     $(".td-anchor.td-anchor--end .m-icon--dropdown").css(
-                        "border",
-                        "1px solid #fff"
-                     );
-                     $(this).css("border", "1px solid #0075c0");
-                  }
-               );
-               if (_this) {
-                  if (!_this.is(e.target))
-                     _this.css("border", "1px solid #fff");
-               }
-            });
+            // $(".td-anchor.td-anchor--end a").click(function () {
+            //    openForm();
+            // });
             $(".m-table_pagination .pagination__left b").text(numberReords);
+            // console.log(totalPages);
+            renderListPaginate(pageNumber, pageSize, totalPages);
          },
       });
 
@@ -144,6 +145,7 @@ async function loadData() {
       clickCheckboxTable(numberReords);
       // handle event click dropdown in coloumn action of table
       hamdleClickDropdownActionTable();
+      deleteMulti();
    } catch (error) {
       console.log(error);
    }
@@ -187,13 +189,13 @@ async function openForm(item = {}) {
    }
    // click dropdown departments
    $("#ten_don_vi button").click(function () {
-      $("#ten_don_vi ul").fadeToggle();
+      console.log("dropdown department");
+      $("#ten_don_vi ul").toggle();
    });
 
    // select item droplist departments
    $("#ten_don_vi ul li").click(function () {
       let _this = this;
-      const { DepartmentId } = $(this).attr("departmentId");
       $("#ten_don_vi ul li").removeClass("active");
       $(this).addClass("active");
       $("#ten_don_vi ul").fadeOut();
@@ -215,96 +217,106 @@ function hideForm(item = {}) {
  * author VDTien (20/10/2022)
  */
 function handleSaveOnClick() {
-   $(".form-footer__right .btn-primary").click(function () {
-      // validate dữ liệu
-      let isValid = validateData();
-      if (isValid) {
-         //thu thập dữ liệu
-         let maNhanVien = $("#ma_nhan_vien").val();
-         let tenNhanVien = $("#ten_nhan_vien").val();
-         let maDonVi = $("#ten_don_vi input").attr("departmentId");
-         // let maDonVi = "142cb08f-7c31-21fa-8e90-67245e8b283e";
-         let chucDanh = $("#chuc_danh").val();
-         // let ngaySinh = $("#ngay_sinh").val();
-         let ngaySinh = "10/10/2020";
-         let gioiTinh;
-         let cccd = $("#cccd").val();
-         let ngayCapCCCD = $("#ngay_cap_cccd").val();
-         let noiCapCCCD = $("#noi_cap_cccd").val();
-         let diaChi = $("#dia_chi").val();
-         let dtDiDong = $("#sdt").val();
-         let dtCoDinh = $("#sdt_co_dinh").val();
-         let email = $("#email").val();
-         let tkNganHang = $("#tk_ngan_hang").val();
-         let tenNganHang = $("#ten_ngan_hang").val();
-         let chiNhanh = $("#chi_nhanh").val();
-         // handle select gender
-         $(
-            ".m-form-wrapper .textfield__container--radio input[type='radio'][name='gender-form']"
-         ).each(function () {
-            if ($(this).prop("checked") == true) {
-               gioiTinh = $(this).attr("value");
-            }
-         });
-         let employee = {
-            EmployeeCode: maNhanVien,
-            EmployeeName: tenNhanVien,
-            Gender: gioiTinh,
-            PositionName: chucDanh,
-            DateOfBirth: ngaySinh,
-            IdentityNumber: cccd,
-            IdentityDate: ngayCapCCCD,
-            IdentityPlace: noiCapCCCD,
-            PhoneNumber: dtDiDong,
-            DepartmentId: maDonVi,
-            Email: email,
-            Address: diaChi,
-            TelephoneNumber: dtCoDinh,
-            BankAccountNumber: tkNganHang,
-            BankName: tenNganHang,
-            BankBranchName: chiNhanh,
-         };
+   // validate dữ liệu
+   let isValid = validateData();
+   if (isValid) {
+      //thu thập dữ liệu
+      let maNhanVien = $("#ma_nhan_vien").val();
+      let tenNhanVien = $("#ten_nhan_vien").val();
+      let maDonVi = $("#ten_don_vi input").attr("departmentId");
+      // let maDonVi = "142cb08f-7c31-21fa-8e90-67245e8b283e";
+      let chucDanh = $("#chuc_danh").val();
+      // let ngaySinh = $("#ngay_sinh").val();
+      let ngaySinh = "10/10/2020";
+      let gioiTinh;
+      let cccd = $("#cccd").val();
+      let ngayCapCCCD = $("#ngay_cap_cccd").val();
+      let noiCapCCCD = $("#noi_cap_cccd").val();
+      let diaChi = $("#dia_chi").val();
+      let dtDiDong = $("#sdt").val();
+      let dtCoDinh = $("#sdt_co_dinh").val();
+      let email = $("#email").val();
+      let tkNganHang = $("#tk_ngan_hang").val();
+      let tenNganHang = $("#ten_ngan_hang").val();
+      let chiNhanh = $("#chi_nhanh").val();
+      // handle select gender
+      $(
+         ".m-form-wrapper .textfield__container--radio input[type='radio'][name='gender-form']"
+      ).each(function () {
+         if ($(this).prop("checked") == true) {
+            gioiTinh = $(this).attr("value");
+         }
+      });
+      let employee = {
+         EmployeeCode: maNhanVien,
+         EmployeeName: tenNhanVien,
+         Gender: gioiTinh,
+         PositionName: chucDanh,
+         DateOfBirth: ngaySinh,
+         IdentityNumber: cccd,
+         IdentityDate: ngayCapCCCD,
+         IdentityPlace: noiCapCCCD,
+         PhoneNumber: dtDiDong,
+         DepartmentId: maDonVi,
+         Email: email,
+         Address: diaChi,
+         TelephoneNumber: dtCoDinh,
+         BankAccountNumber: tkNganHang,
+         BankName: tenNganHang,
+         BankBranchName: chiNhanh,
+      };
 
-         console.log("employee data: ", employee);
-         let statusCode = null;
-         //Gọi API thực hiện cất dữ liệu
-         fetch("https://amis.manhnv.net/api/v1/employees", {
-            method: "POST",
-            body: JSON.stringify(employee),
-            headers: {
-               "Content-Type": "application/json",
-               // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
+      console.log("employee data: ", employee);
+      let statusCode = null;
+      // let api = "";
+      // let method = "";
+      // //Gọi API thực hiện cất dữ liệu
+
+      // if (type == "edit" && employeeID) {
+      //    api = `https://amis.manhnv.net/api/v1/employees/${employeeID}`;
+      //    method = "PUT";
+      // } else {
+      //    api = "https://amis.manhnv.net/api/v1/employees";
+      //    method = "POST";
+      // }
+      // console.log("api: ", api);
+      fetch(`https://amis.manhnv.net/api/v1/employees`, {
+         method: "POST",
+         body: JSON.stringify(employee),
+         headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+         },
+      })
+         .then((res) => {
+            statusCode = res.status;
+            return res.json();
          })
-            .then((res) => {
-               statusCode = res.status;
-               return res.json();
-            })
-            .then((res) => {
-               switch (statusCode) {
-                  case 400:
+         .then((res) => {
+            switch (statusCode) {
+               case 400:
+                  $(".m-popup-wrapper.error-submit-form").css(
+                     "display",
+                     "flex"
+                  );
+                  $(
+                     ".m-popup-wrapper.error-submit-form .popup-body__right"
+                  ).text(res.userMsg);
+                  $(
+                     ".m-popup-wrapper.error-submit-form .popup-footer__right .btn-primary"
+                  ).click(function () {
                      $(".m-popup-wrapper.error-submit-form").css(
                         "display",
-                        "flex"
+                        "none"
                      );
-                     $(
-                        ".m-popup-wrapper.error-submit-form .popup-body__right"
-                     ).text(res.userMsg);
-                     $(
-                        ".m-popup-wrapper.error-submit-form .popup-footer__right .btn-primary"
-                     ).click(function () {
-                        $(".m-popup-wrapper.error-submit-form").css(
-                           "display",
-                           "none"
-                        );
-                     });
-                     break;
-                  case 201: // thêm nhân viên mới thành công
-                     // ẩn form
-                     hideForm();
-                     // hiện toast message
-                     $("body").append(
-                        `
+                  });
+                  break;
+               case 201: // thêm nhân viên mới thành công
+                  // ẩn form
+                  hideForm();
+                  // hiện toast message
+                  $("body").append(
+                     `
                               <div class="m-toast-wrapper">
                               <div class="toast-message">
                               <span class="toast-icon toast-icon--succes">
@@ -312,7 +324,7 @@ function handleSaveOnClick() {
                               </span>
                               <div class="toast-content">
                                  <span class="toast-title toast-title--success">Thành công!</span>
-                                 <span class="toast-text">Công việc đã bị xóa</span>
+                                 <span class="toast-text">Nhân viên đã được thêm</span>
                               </div>
                               <a href="" class="toast-action">Hoàn tác</a>
                               <button class="toast-close">
@@ -321,42 +333,41 @@ function handleSaveOnClick() {
                            </div>
                               </div>
                            `
+                  );
+
+                  $(".m-toast-wrapper").show(function () {
+                     $(this).animate({ right: "40px" });
+                  });
+                  $(".m-toast-wrapper .toast-close").click(function () {
+                     $(".m-toast-wrapper").animate(
+                        { right: "-500px" },
+                        function () {
+                           $(this).hide();
+                        }
                      );
+                  });
+                  setTimeout(function () {
+                     $(".m-toast-wrapper").animate(
+                        { right: "-500px" },
+                        function () {
+                           $(this).hide();
+                        }
+                     );
+                  }, 3000);
 
-                     $(".m-toast-wrapper").show(function () {
-                        $(this).animate({ right: "40px" });
-                     });
-                     $(".m-toast-wrapper .toast-close").click(function () {
-                        $(".m-toast-wrapper").animate(
-                           { right: "-500px" },
-                           function () {
-                              $(this).hide();
-                           }
-                        );
-                     });
-                     setTimeout(function () {
-                        $(".m-toast-wrapper").animate(
-                           { right: "-500px" },
-                           function () {
-                              $(this).hide();
-                           }
-                        );
-                     }, 3000);
-
-                     loadData();
-                     //load lại dữ liệu
-                     break;
-                  default:
-                     alert("Đã xảy ra lỗi vui lòng thử lại sau");
-                     break;
-               }
-            })
-            .catch((err) => {
-               console.log(err);
-            });
-         //  kiểm tra kết quả trả vê -> đưa ra thông báo
-      }
-   });
+                  loadData();
+                  //load lại dữ liệu
+                  break;
+               default:
+                  alert("Đã xảy ra lỗi vui lòng thử lại sau");
+                  break;
+            }
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+      //  kiểm tra kết quả trả vê -> đưa ra thông báo
+   }
 }
 /**
  * thực hiện validate dữ liệu
@@ -442,16 +453,25 @@ function hamdleClickDropdownActionTable() {
       );
       _this = $(this);
       $(this).removeClass("no-selected");
-      $(".m-table__content tbody .m-icon--dropdown.no-selected")
+      $(".m-table__content .td-anchor--end .m-icon--dropdown.no-selected")
          .children()
          .hide();
       $(this).children().toggle();
       $(this).parent().css("z-index", 1);
+
+      $(".m-table__content .td-anchor--end .m-icon--dropdown").css(
+         "border",
+         "1px solid #fff"
+      );
+      $(this).css("border", "1px solid #0075c0");
    });
 
    $(document).click(function (e) {
       if (_this) {
-         if (!_this.is(e.target)) _this.children().hide();
+         if (!_this.is(e.target)) {
+            _this.children().hide();
+            _this.css("border", "1px solid #fff");
+         }
       }
    });
 }
@@ -478,8 +498,9 @@ async function getDataDepartments() {
 }
 /**
  *
- * @param {date} date
+ * @param {string} date
  * @returns cáu trúc DD/MM/YYYY
+ * author VDTien(23/10/2022)
  */
 function convertDateOfBirth(date) {
    if (checkForamtDate(date)) {
@@ -489,11 +510,287 @@ function convertDateOfBirth(date) {
          let month =
             date.getMonth() < 9 ? "0" + date.getMonth() : date.getMonth() + 1;
          let year = date.getFullYear();
-         return `${day}/${month}/${year}`;
+         return `${day}-${month}-${year}`;
       }
    }
    return "";
 }
+/**
+ *
+ * @param {string} date
+ * @returns kiểm tra đầu vào đúng định dạng không
+ * author VDTien(23/10/2022)
+ */
 function checkForamtDate(date) {
    return new Date(date) !== "Invalid Date" && !isNaN(new Date(date));
+}
+/**
+ * kiểm tra chuỗi faslthy trả về chuổi rỗng
+ * author VDTien(23/10/2022)
+ */
+function convertNullString(str) {
+   return str ? str : "";
+}
+/**
+ * xử lý tabIndex rollback trong form
+ * author VDTien(23/10/2022)
+ */
+function handleTabIndex() {
+   $("#btnCancel").keydown(function (e) {
+      e.preventDefault();
+      let code = e.keyCode || e.which;
+
+      if (code == "9") {
+         $("#ma_nhan_vien").focus();
+      }
+   });
+}
+function handleDropdownPaginate() {
+   $(".m-table_pagination .record-in-page .textfield__icon").click(function () {
+      $(
+         ".m-table_pagination .record-in-page .dropdownlist--pagination"
+      ).toggle();
+      // số bản ghi trên 1 trang
+      let pageSize;
+      $(
+         ".m-table_pagination .record-in-page .dropdownlist--pagination .dropdown__item"
+      ).click(function () {
+         // set value cho thẻ input
+         let _this = $(this);
+         $(".m-table_pagination .record-in-page input").val(
+            _this.text().trim()
+         );
+         $(".m-table_pagination .record-in-page input").attr({
+            numberRecord: _this.attr("value"),
+         });
+         // ẩn dropdown
+         $(this).parent().hide();
+         pageSize = $(".m-table_pagination .record-in-page input").attr(
+            "numberRecord"
+         );
+         // load lại table
+         loadData(pageSize);
+      });
+   });
+}
+/**
+ *
+ * @param {number} pageNumber
+ * @param {number} totalPages
+ * xử lý hiển thị phân trang
+ */
+function renderListPaginate(pageNumber, pageSize, totalPages) {
+   console.log("pageNumber : ", pageNumber);
+   // render danh sách trang
+   $(".pagination-right__action").empty();
+   $(".pagination-right__action").append(`
+      <span class="btn-pagination btn-pagination__prev ${
+         pageNumber == 1 ? "no-click-paginate" : ""
+      }">Trước</span>
+         <div class="page-list m-d-flex">
+            <div class="page-item page-item--current">1</div>
+            <div class="page-item">2</div>
+         </div>
+      <span class="btn-pagination btn-pagination__last ${
+         pageNumber == totalPages ? "no-click-paginate" : ""
+      }">Sau</span>
+   `);
+   $(".pagination-right__action .page-list").empty();
+   for (let i = 1; i <= totalPages; i++) {
+      $(".pagination-right__action .page-list").append(`
+   <div class="page-item ${
+      i === pageNumber ? "page-item--current" : ""
+   }">${i}</div>
+   `);
+   }
+   // xử lý sự kiện chọn trang
+   $(".pagination-right__action .page-item").click(function () {
+      let pageNumber = parseInt($(this).text().trim());
+
+      console.log("hanlde pagenumber", pageNumber, pageSize);
+      loadData(pageSize, pageNumber);
+   });
+   // xử lý sự kiện click trước sau
+   $(".btn-pagination__prev").click(function () {
+      if (pageNumber > 1) {
+         pageNumber--;
+         loadData(pageSize, pageNumber);
+      }
+   });
+   $(".btn-pagination__last").click(function () {
+      if (pageNumber < totalPages) {
+         pageNumber++;
+         loadData(pageSize, pageNumber);
+      }
+   });
+}
+async function onEditBtn(employeeID) {
+   let employee = null;
+   try {
+      await $.ajax({
+         type: "GET",
+         url: `https://amis.manhnv.net/api/v1/Employees/${employeeID}`,
+         success: function (response) {
+            employee = response;
+         },
+      });
+      console.log(employee);
+      // return departments;
+   } catch (error) {
+      console.log(error);
+   }
+   openForm();
+   if (employee) {
+      let {
+         Address,
+         BankAccountNumber,
+         BankBranchName,
+         BankName,
+         DateOfBirth,
+         DepartmentId,
+         DepartmentName,
+         Email,
+         EmployeeCode,
+         EmployeePosition,
+         EmployeeName,
+         Gender,
+         GenderName,
+         IdentityDate,
+         IdentityNumbe,
+         IdentityPlace,
+         PhoneNumber,
+         TelephoneNumber,
+      } = employee;
+
+      $("#ma_nhan_vien").val(EmployeeCode);
+      $("#ten_nhan_vien").val(EmployeeName);
+      $("#ten_don_vi input").attr({
+         departmentId: DepartmentId,
+         value: DepartmentName,
+      });
+      //  "142cb08f-7c31-21fa-8e90-67245e8b283e";
+      $("#chuc_danh").val(EmployeePosition);
+      $("#ngay_sinh").val(convertDateOfBirth(DateOfBirth));
+      $(".textfield__input--radio").each(function () {
+         if ($(this).attr("value") == Gender) {
+            $(this).prop("checked", true);
+         }
+      });
+      $("#cccd").val(IdentityNumbe);
+      $("#ngay_cap_cccd").val(IdentityDate);
+      $("#noi_cap_cccd").val(IdentityPlace);
+      $("#dia_chi").val(Address);
+      $("#sdt").val(PhoneNumber);
+      $("#sdt_co_dinh").val(TelephoneNumber);
+      $("#email").val(Email);
+      $("#tk_ngan_hang").val(BankAccountNumber);
+      $("#ten_ngan_hang").val(BankName);
+      $("#chi_nhanh").val(BankBranchName);
+      // handle select gender
+      // $(
+      //    ".m-form-wrapper .textfield__container--radio input[type='radio'][name='gender-form']"
+      // ).each(function () {
+      //    if ($(this).prop("checked") == true) {
+      //       gioiTinh = $(this).attr("value");
+      //    }
+      // });
+      $(".form-footer__right .btn-primary").click(function () {
+         handleSaveOnClick("edit", employeeID);
+      });
+   }
+}
+async function onDelete(employeeID) {
+   try {
+      await $.ajax({
+         type: "DELETE",
+         url: `https://amis.manhnv.net/api/v1/Employees/${employeeID}`,
+         success: function (response) {
+            if (response == 1) {
+               $("body").append(
+                  `
+                           <div class="m-toast-wrapper">
+                           <div class="toast-message">
+                           <span class="toast-icon toast-icon--succes">
+                              <i class="fa-solid fa-circle-check"></i>
+                           </span>
+                           <div class="toast-content">
+                              <span class="toast-title toast-title--success">Thành công!</span>
+                              <span class="toast-text">Công việc đã bị xóa</span>
+                           </div>
+                           <a href="" class="toast-action">Hoàn tác</a>
+                           <button class="toast-close">
+                              <i class="fa-solid fa-xmark"></i>
+                           </button>
+                        </div>
+                           </div>
+                        `
+               );
+
+               $(".m-toast-wrapper").show(function () {
+                  $(this).animate({ right: "40px" });
+               });
+               $(".m-toast-wrapper .toast-close").click(function () {
+                  $(".m-toast-wrapper").animate(
+                     { right: "-500px" },
+                     function () {
+                        $(this).hide();
+                     }
+                  );
+               });
+               setTimeout(function () {
+                  $(".m-toast-wrapper").animate(
+                     { right: "-500px" },
+                     function () {
+                        $(this).hide();
+                     }
+                  );
+               }, 3000);
+            }
+         },
+      });
+      // console.log(departments);
+   } catch (error) {
+      console.log(error);
+   }
+   let pageSize;
+   pageSize = $(".m-table_pagination .record-in-page input").attr(
+      "numberRecord"
+   );
+   loadData(pageSize);
+}
+/**
+ * xóa nhiều bàn ghỉ
+ * author VDTien (30/10/2022)
+ */
+async function deleteMulti() {
+   await $(".batch-excecution .btn-delete").click(function () {
+      let arrID = [];
+      $(".td-anchor--start input").each(function () {
+         if ($(this).prop("checked") == true) {
+            let id = $(this).attr("employeeID");
+            arrID.push(id);
+         }
+      });
+      console.log("check arr : ", arrID);
+      try {
+         arrID.forEach((employeeID) => {
+            $.ajax({
+               type: "DELETE",
+               url: `https://amis.manhnv.net/api/v1/Employees/${employeeID}`,
+               success: function (response) {
+                  console.log("res delete multi");
+               },
+            });
+         });
+         // console.log(departments);
+      } catch (error) {
+         console.log(error);
+      }
+      let pageSize;
+      pageSize = $(".m-table_pagination .record-in-page input").attr(
+         "numberRecord"
+      );
+      $(".batch-excecution").fadeOut();
+      loadData(pageSize);
+   });
 }

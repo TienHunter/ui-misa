@@ -15,7 +15,7 @@
    background-color: #50b83c;
    color: #fff;
 }
-.btn-primary:active {
+.btn-primary:focus {
    background-color: #055b27;
 }
 .btn-primary:hover {

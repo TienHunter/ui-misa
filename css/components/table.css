@@ -123,9 +123,6 @@ th > input {
 }
 .btn-pagination__prev {
    margin-right: 12px;
-   color: #9e9e9e;
-   cursor: none;
-   pointer-events: none;
 }
 .btn-pagination__last {
    margin-left: 12px;
@@ -143,4 +140,9 @@ th > input {
    border: 1px solid #3e3e3e;
    color: #111;
    font-weight: 600;
+}
+.no-click-paginate {
+   color: #9e9e9e;
+   cursor: none;
+   pointer-events: none;
 }

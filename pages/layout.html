@@ -171,7 +171,9 @@
                      <div class="main-content-tools__left">
                         <div class="batch-excecution">
                            <span>Thực hiện hàng loạt:</span>
-                           <button class="btn btn-delete">Xóa</button>
+                           <button class="btn btn-delete" onclick="deleteMulti">
+                              Xóa
+                           </button>
                         </div>
                      </div>
                      <div class="m-d-flex">
@@ -293,6 +295,7 @@
                                     class="textfield__input"
                                     readonly
                                     value="20 bản ghi trên 1 trang"
+                                    numberRecord="20"
                                  />
                                  <button class="textfield__icon">
                                     <i class="fa-solid fa-chevron-down"></i>
@@ -300,35 +303,24 @@
                                  <ul
                                     class="dropdownlist dropdownlist--pagination"
                                  >
-                                    <li class="dropdown__item">Hà Nội</li>
-                                    <li class="dropdown__item">
-                                       TP Hồ Chí Minh
+                                    <li class="dropdown__item" value="10">
+                                       10 bản ghi trên 1 trang
                                     </li>
-                                    <li class="dropdown__item">Đà Nẵng</li>
-                                    <li class="dropdown__item">Hải Phòng</li>
-                                    <li class="dropdown__item">Hải Dương</li>
+                                    <li class="dropdown__item" value="20">
+                                       20 bản ghi trên 1 trang
+                                    </li>
+                                    <li class="dropdown__item" value="50">
+                                       50 bản ghi trên 1 trang
+                                    </li>
+                                    <li class="dropdown__item" value="100">
+                                       100 bản ghi trên 1 trang
+                                    </li>
                                  </ul>
                               </div>
                            </div>
                            <div
                               class="pagination-right__action m-d-flex m-ml-12 m-mr-12"
-                           >
-                              <span class="btn-pagination btn-pagination__prev"
-                                 >Trước</span
-                              >
-                              <div class="page-list m-d-flex">
-                                 <div class="page-item page-item--current">
-                                    1
-                                 </div>
-                                 <div class="page-item">2</div>
-                                 <div class="page-item">3</div>
-                                 <div class="page-item">...</div>
-                                 <div class="page-item">52</div>
-                              </div>
-                              <span class="btn-pagination btn-pagination__last"
-                                 >Sau</span
-                              >
-                           </div>
+                           ></div>
                         </div>
                      </div>
                   </div>
@@ -423,6 +415,7 @@
                                  type="text"
                                  class="textfield__input textfield__input--required m-pr-36"
                                  departmentId
+                                 readonly
                               />
                               <p
                                  class="input-error hide-text-ellipsis"
@@ -652,17 +645,22 @@
                   </div>
                </div>
                <div class="form__footer m-d-flex">
-                  <div class="form-footer__left">
-                     <button type="button" class="btn btn-sub">Hủy</button>
-                  </div>
                   <div class="form-footer__right m-d-flex">
-                     <button type="button" class="btn btn-sub">Cất</button>
+                     <button type="button" class="btn btn-sub" id="btnSave">
+                        Cất
+                     </button>
                      <button
                         type="button"
                         type="button"
                         class="btn btn-primary"
+                        id="btnSaveAdd"
                      >
                         Cất và thêm mới
+                     </button>
+                  </div>
+                  <div class="form-footer__left">
+                     <button type="button" class="btn btn-sub" id="btnCancel">
+                        Hủy
                      </button>
                   </div>
                </div>
